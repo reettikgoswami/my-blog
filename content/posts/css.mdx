@@ -1,0 +1,126 @@
+---
+title: CSS box-model
+date: 2019-11-25
+---
+
+By default, there are two types of elements HTML, block-level elements, and inline-level elements. We have seen the difference between them. We also covered block-level elements that always start from a new line and takes the available width and inline-level elements take the space as much as it requires according to the content and lines up one after the other. In an HTML document, the block-level or the inline-level elements or something else, are all determined by the display property.
+
+## Display properties:
+
+we can overwrite any property values in CSS, in a similar way we can also overwrite the default display property values. It means we can make a block to inline or inline-block and inline to block or inline-block etc. Let’s see how we can do this.
+
+### Block:
+
+Block-Level elements accept all the box-model(height, width, margin, padding ) properties and values. To convert any element into a block-level element we just need to change its display property.
+
+```HTML
+span {
+    display: block;
+  }
+```
+
+span is an inline-level element but we can change it by using the display property value block,
+
+### Inline:
+
+To make any element behave like an inline-level element we can change the display property value to inline.
+```HTML
+h1 {
+    display: inline;
+  }
+```
+By default, h1is a block-level element but now it will behave like an inline-level element because we have overwritten its display property.
+ 
+### Inline-block:
+
+An inline-level element does not accept all the box-model properties and values. So we have another display property value i.e. inline-block.
+```HTML
+h1 {
+    display: inline-block;
+  }
+```
+With the inline-block value, we can make the element behave like inline-level, which means the element will take the space according to the content and will line up one after one instead of taking whole available width and starting from a new line. But at the same time, it will also accept all the box-model properties(height width padding margin) like block-level elements.
+
+## Box Model:
+
+According to the box model, every element is a rectangular box in a page and it may have some width, height, padding, borders, and margins
+
+### Width:
+
+Every element has some default width based on the display property. If it is a block-level element it will have 100% width covering whole horizontal space. If it is an inline or inline-block element it will have width according to the content it wraps. To set a specified width to an element we can use the width property.
+```HTML
+div {
+    width: 600px;
+  }
+```
+### Height:
+
+As every element has some default width in a similar way every element also has some default height and that is always determined by its content. Similarly width, height also cannot be fixed for the inline-level elements. So to specify the height of non-inline elements we can use the height property:
+```HTML
+div {
+    height: 300px;
+  }
+```
+### Padding:
+
+The padding property is applied to provide space around the content, within an element. Sometimes it is also called breathing space around the content inside the element
+```HTML
+div {
+    padding: 20px;
+  }
+```
+In the above code 20px of padding has been applied therefore there will be a space of 20px around the content in the box.
+
+### Border:
+
+The border is to provide some outline around an element. To apply border we have border property which requires three different values: border-width, border-style, border-color,
+we can write in short-hand.
+
+```HTML
+div {
+	border: 10px solid red;
+}
+``` 
+### Border-radius:
+
+the first value is border width 2nd is border-style and 3rd is border-color
+there is another cool property that is border-radius, it mainly uses to round the corner of the box but if you give the value 50% the box would rounded. (height and the width must be the same)
+```HTML
+div {
+	border-radius: 50%;
+}
+```
+### Margin:
+
+The margin property is very similar to padding. But space instead of applying inside the element it is being applied outside the element. To apply margin we have margin property:
+```HTML
+div {
+     margin : 20px 30px 20px 70px;
+}
+```
+Margin property first To last value is top, right, bottom, left.
+calculate the total width and the height of an element:
+See how the total width and height are being calculated according to the box model.
+```HTML
+div {
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    border: 8px solid #272727;
+    margin: 20px;
+  }
+``` 
+
+## Total width:
+
+margin-left +border-left + padding-left +width+ padding-right + border-right + margin-right=total width
+according to the above formula, we have a total width of the div:
+`20+8+20+300+20+8+20=396`
+
+### Total height:
+
+margin-top +border-top + padding-top +height+ padding-bottom + border-bottom + margin-bottom=total height
+according to the above formula, we have a total width of the div:
+`20+8+20+200+20+8+20=296`
+
+
